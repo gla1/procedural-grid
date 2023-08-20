@@ -54,7 +54,6 @@ public class HexGrid : MonoBehaviour {
     {
         position = transform.InverseTransformPoint(position);
         HexCoordinates coordinates = HexCoordinates.FromPosition(position);
-        Debug.Log($"touched at : {position}");
 
         int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
         HexCell cell = cells[index];
