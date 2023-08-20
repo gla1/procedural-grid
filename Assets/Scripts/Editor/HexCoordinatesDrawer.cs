@@ -14,5 +14,6 @@ public class HexCoordinatesDrawer : PropertyDrawer
             property.FindPropertyRelative("z").intValue
         );
         GUI.Label(EditorGUI.PrefixLabel(position, label), coordinates.ToString());
+        // toggle cell label back on with the checkbox on the hex cell label prefab to see the coordinates again
     }
 }
