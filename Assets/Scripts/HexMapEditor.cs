@@ -9,7 +9,6 @@ public class HexMapEditor : MonoBehaviour
     private Color activeColor;
     private int activeElevation;
 
-
     private void Awake()
     {
         SelectColor(0);
