@@ -2,9 +2,21 @@ using UnityEngine;
 
 public  class HexCell : MonoBehaviour
 {
-    public int elevation;
+    int elevation;
     public HexCoordinates coordinates;
     public Color color;
+
+    public int Elevation
+    {
+        get { return elevation; }
+        set
+        {
+            elevation = value;
+            Vector3 position = transform.localPosition;
+            position.y = value * HexMetrics.elevationStep;
+            transform.localPosition = position;
+        }
+    }
     
     [SerializeField]
     HexCell[] neighbors;
