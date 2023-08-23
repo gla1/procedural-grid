@@ -6,7 +6,9 @@ public  class HexCell : MonoBehaviour
     public HexCoordinates coordinates;
     public Color color;
     public RectTransform uiRect;
-
+    [SerializeField]
+    HexCell[] neighbors;
+    
     public int Elevation
     {
         get { return elevation; }
@@ -23,9 +25,6 @@ public  class HexCell : MonoBehaviour
         }
     }
     
-    [SerializeField]
-    HexCell[] neighbors;
-
     public HexCell GetNeighbor (HexDirection direction) {
         return neighbors[(int)direction];
     }
@@ -33,6 +32,10 @@ public  class HexCell : MonoBehaviour
     public void SetNeighbor (HexDirection direction, HexCell cell) {
         neighbors[(int)direction] = cell;
         cell.neighbors[(int)direction.Opposite()] = this;
+    }
+    
+    public HexEdgeType GetEdgeType (HexDirection direction) {
+        return HexMetrics.GetEdgeType(elevation, neighbors[(int)direction].elevation);
     }
 }
 
