@@ -11,7 +11,9 @@ public static class HexMetrics {
     public const float horizontalTerraceStepSize = 1f / terraceSteps;
     public const float verticalTerraceStepSize = 1f / (terracesPerSlope + 1);
     public const float cellPerturbStrength = 5f;
-	public static Texture2D noiseSource;
+    public const float elevationPerturbStrength = 1.5f;
+    public const float noiseScale = 0.003f;
+    public static Texture2D noiseSource;
 	
     static Vector3[] corners = {
 		new Vector3(0f, 0f, outerRadius),
@@ -69,7 +71,7 @@ public static class HexMetrics {
 	
 	public static Vector4 SampleNoise (Vector3 position)
 	{
-		return noiseSource.GetPixelBilinear(position.x, position.y);
+		return noiseSource.GetPixelBilinear(position.x * noiseScale, position.y * noiseScale);
 	}
 }
 
