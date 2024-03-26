@@ -166,10 +166,8 @@ public class HexMesh : MonoBehaviour {
             v4 = HexMetrics.TerraceLerp(begin, right, i);
             c3 = HexMetrics.TerraceLerp(beginCell.color, leftCell.color, i);
             c4 = HexMetrics.TerraceLerp(beginCell.color, rightCell.color, i);
-            AddTriangle(v1, v2, v4);
-            AddTriangle(v1, v4, v3);
-            AddTriangleColor(c1, c2, c4);
-            AddTriangleColor(c1, c4, c3);
+            AddQuad(v1, v2, v3, v4);
+            AddQuadColor(c1, c2, c3, c4);
         }
         
         AddQuad(v3, v4, left, right);
