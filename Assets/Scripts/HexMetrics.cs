@@ -10,6 +10,7 @@ public static class HexMetrics {
     public const int terraceSteps = terracesPerSlope * 2 + 1;
     public const float horizontalTerraceStepSize = 1f / terraceSteps;
     public const float verticalTerraceStepSize = 1f / (terracesPerSlope + 1);
+    public const float cellPerturbStrength = 5f;
 	public static Texture2D noiseSource;
 	
     static Vector3[] corners = {
