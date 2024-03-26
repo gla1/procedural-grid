@@ -6,6 +6,14 @@ public  class HexCell : MonoBehaviour
     public HexCoordinates coordinates;
     public Color color;
     public RectTransform uiRect;
+
+    public Vector3 Position
+    {
+        get
+        {
+            return transform.localPosition;
+        }
+    }
     [SerializeField]
     HexCell[] neighbors;
     
