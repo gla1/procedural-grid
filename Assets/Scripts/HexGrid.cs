@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +6,7 @@ public class HexGrid : MonoBehaviour {
     public int width = 6;
     public int height = 6;
     public HexCell cellPrefab;
+    public Texture2D noiseSource;
 
     public Text cellLabelPrefab;
 
@@ -13,6 +15,7 @@ public class HexGrid : MonoBehaviour {
 
     HexCell[] cells;
     void Awake() {
+        HexMetrics.noiseSource = noiseSource;
         gridCanvas = GetComponentInChildren<Canvas>();
         hexMesh = GetComponentInChildren<HexMesh>();
         cells = new HexCell[height * width];
@@ -24,6 +27,11 @@ public class HexGrid : MonoBehaviour {
                 CreateCell(x, z, i++);
             }
         }
+    }
+
+    private void OnEnable()
+    {
+        HexMetrics.noiseSource = noiseSource;
     }
 
     void Start()
