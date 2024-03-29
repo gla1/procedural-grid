@@ -310,7 +310,7 @@ public class HexMesh : MonoBehaviour {
             Color c1 = c2;
             e2 = EdgeVertices.TerraceLerp(begin, end, i);
             c2 = HexMetrics.TerraceLerp(beginCell.color, endCell.color, i);
-            TriangulateEdgeStrip(e2, c2, e1, c1);
+            TriangulateEdgeStrip(e1, c1, e2, c2);
         }
         
         TriangulateEdgeStrip(e2, c2, end, endCell.color);
