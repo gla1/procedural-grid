@@ -61,13 +61,7 @@ public class HexMesh : MonoBehaviour {
         Vector3 center = cell.Position;
         EdgeVertices e = new EdgeVertices(center + HexMetrics.GetFirstSolidCorner(direction), center + HexMetrics.GetSecondSolidCorner(direction));
         TriangulateEdgeFan(center, e, cell.color);
-        if (direction == HexDirection.NE) {
-            TriangulateConnection(direction, cell, e);
-        }
         if (direction <= HexDirection.SE) {
-            TriangulateConnection(direction, cell, e);
-        }
-        if (direction <= HexDirection.E) {
             TriangulateConnection(direction, cell, e);
         }
     }
