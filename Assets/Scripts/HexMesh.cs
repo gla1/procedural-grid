@@ -303,7 +303,7 @@ public class HexMesh : MonoBehaviour {
 
     private void TriangulateEdgeTerraces(
         EdgeVertices begin, HexCell beginCell, 
-        EdgeVertices end, Vector3 endRight, HexCell endCell
+        EdgeVertices end, HexCell endCell
         )
     {
         EdgeVertices e2 = EdgeVertices.TerraceLerp(begin, end, 1);
