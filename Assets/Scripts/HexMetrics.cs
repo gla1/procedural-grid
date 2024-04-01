@@ -13,6 +13,7 @@ public static class HexMetrics {
     public const float cellPerturbStrength = 4f;
     public const float elevationPerturbStrength = 1.5f;
     public const float noiseScale = 0.003f;
+    public const int chunkSizeX = 5, chunkSizeZ = 5;
     public static Texture2D noiseSource;
 	
     static Vector3[] corners = {
