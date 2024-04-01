@@ -55,7 +55,7 @@ public class HexGrid : MonoBehaviour {
         HexCell cell = cells[i] = Instantiate(cellPrefab);
         cell.transform.localPosition = position;
         cell.coordinates = HexCoordinates.FromOffsetCoordinates(x, z);
-        cell.color = defaultColor;
+        cell.Color = defaultColor;
         
         if (x > 0) {
             cell.SetNeighbor(HexDirection.W, cells[i - 1]);

@@ -2,10 +2,10 @@ using UnityEngine;
 
 public  class HexCell : MonoBehaviour
 {
-    int elevation;
+    int elevation = int.MinValue;
     public HexCoordinates coordinates;
-    public Color color;
     public RectTransform uiRect;
+    public HexGridChunk chunk;
 
     public Vector3 Position
     {
@@ -16,7 +16,22 @@ public  class HexCell : MonoBehaviour
     }
     [SerializeField]
     HexCell[] neighbors;
-    
+
+    public Color Color {
+        get {
+            return color;
+        }
+        set {
+            if (color == value) {
+                return;
+            }
+            color = value;
+            Refresh();
+        }
+    }
+
+    Color color;
+
     public int Elevation
     {
         get { return elevation; }
@@ -31,6 +46,27 @@ public  class HexCell : MonoBehaviour
             Vector3 uiPosition = uiRect.localPosition;
             uiPosition.z = elevation * -position.y;
             uiRect.localPosition = uiPosition;
+            if (elevation == value)
+            {
+                return;
+            }
+            Refresh();
+        }
+    }
+
+    void Refresh()
+    {
+        if (chunk)
+        {
+            chunk.Refresh();
+            for (int i = 0; i < neighbors.Length; i++)
+            {
+                HexCell neighbor = neighbors[i];
+                if (neighbor != null && neighbor.chunk != chunk)
+                {
+                    neighbor.chunk.Refresh();
+                }
+            }
         }
     }
     
