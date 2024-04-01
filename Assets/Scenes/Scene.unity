@@ -1704,12 +1704,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a387dd514f047a4196d311e5d10c8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 6
-  height: 6
   cellPrefab: {fileID: 5836779365168306411, guid: 02ccf81339671334b80453f8c92fcf8f,
     type: 3}
   noiseSource: {fileID: 2800000, guid: 941bce0b004c2014db0d027bc397cbfa, type: 3}
+  chunkCountX: 4
+  chunkCountZ: 3
   cellLabelPrefab: {fileID: 6815602892417942906, guid: b94015eeef09d2b43b8a700bceb7b580,
+    type: 3}
+  chunkPrefab: {fileID: 5382261414233203250, guid: 40ab946482fa5764f81869875c1149d5,
     type: 3}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   touchedColor: {r: 1, g: 0, b: 1, a: 1}

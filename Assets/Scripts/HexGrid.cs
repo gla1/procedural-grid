@@ -10,15 +10,10 @@ public class HexGrid : MonoBehaviour {
     public Text cellLabelPrefab;
     public HexGridChunk chunkPrefab;
 
-    Canvas gridCanvas;
-    HexMesh hexMesh;
-
     HexCell[] cells;
     HexGridChunk[] chunks;
     void Awake() {
         HexMetrics.noiseSource = noiseSource;
-        gridCanvas = GetComponentInChildren<Canvas>();
-        hexMesh = GetComponentInChildren<HexMesh>();
         cellCountX = chunkCountX * HexMetrics.chunkSizeX;
         cellCountZ = chunkCountZ * HexMetrics.chunkSizeZ;
         CreateChunks();
@@ -30,24 +25,18 @@ public class HexGrid : MonoBehaviour {
         HexMetrics.noiseSource = noiseSource;
     }
 
-    void Start()
-    {
-        hexMesh.Triangulate(cells);
-    }
-    
-    void CreateChunks()
-    {
+
+    void CreateChunks () {
         chunks = new HexGridChunk[chunkCountX * chunkCountZ];
-        
-        for (int z = 0, i = 0; z < chunkCountZ; z++)
-        {
-            for (int x = 0; x < chunkCountX; x++)
-            {
+
+        for (int z = 0, i = 0; z < chunkCountZ; z++) {
+            for (int x = 0; x < chunkCountX; x++) {
                 HexGridChunk chunk = chunks[i++] = Instantiate(chunkPrefab);
                 chunk.transform.SetParent(transform);
             }
         }
     }
+    
     void CreateCells() {
         cells = new HexCell[cellCountZ * cellCountX];
         for (int z = 0, i = 0; z < cellCountZ; z++) {
@@ -115,11 +104,6 @@ public class HexGrid : MonoBehaviour {
 
         int index = coordinates.X + coordinates.Z * cellCountX + coordinates.Z / 2;
         return cells[index];
-    }
-    
-    public void Refresh()
-    {
-        hexMesh.Triangulate(cells);
     }
 
     public Color defaultColor = Color.white;
