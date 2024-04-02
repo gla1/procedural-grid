@@ -32,18 +32,39 @@ public class HexMapEditor : MonoBehaviour
         }
     }
 
+    private bool applyColor;
+    bool applyElevation = true;
+
     private void EditCell(HexCell cell)
     {
-        cell.Color = activeColor;
-        cell.Elevation = activeElevation;
+        if (applyColor)
+        {
+            cell.Color = activeColor;
+        }
+        if (applyElevation)
+        {
+            cell.Elevation = activeElevation;
+        }
     }
 
     public void SelectColor(int index)
     {
-        activeColor = colors[index];
+        applyColor = index >= 0;
+        if (applyColor)
+        {
+            activeColor = colors[index];
+        }
     }
-    
     public void SetElevation (float elevation) {
         activeElevation = (int)elevation;
+    }
+    
+    public void SetApplyElevation (bool toggle) {
+        applyElevation = toggle;
+    }
+
+    private int brushSize; 
+    public void SetBrushSize (float size) {
+        brushSize = (int)size;
     }
 }
