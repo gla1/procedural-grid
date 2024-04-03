@@ -91,4 +91,9 @@ public class HexMapEditor : MonoBehaviour
     public void SetBrushSize (float size) {
         brushSize = (int)size;
     }
+    
+    public void ShowUI(bool visible)
+    {
+        hexGrid.ShowUI(visible);
+    }
 }

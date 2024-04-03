@@ -117,7 +117,14 @@ public class HexGrid : MonoBehaviour {
         int index = coordinates.X + coordinates.Z * cellCountX + coordinates.Z / 2;
         return cells[index];
     }
+    
+    public void ShowUI(bool visible)
+    {
+        for (int i = 0; i < chunks.Length; i++)
+        {
+            chunks[i].ShowUI(visible);
+        }
+    }    
 
     public Color defaultColor = Color.white;
-    public Color touchedColor = Color.magenta;
 }
