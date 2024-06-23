@@ -8,7 +8,15 @@ public class HexMapEditor : MonoBehaviour
     public HexGrid hexGrid;
     private Color activeColor;
     private int activeElevation;
-
+    enum OptionalToggle
+    {
+        Ignore, Yes, No
+    }
+    OptionalToggle riverMode;
+    
+    public void SetRiverMode (int mode) {
+        riverMode = (OptionalToggle)mode;
+    }
     private void Awake()
     {
         SelectColor(0);
