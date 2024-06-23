@@ -161,6 +161,20 @@ public  class HexCell : MonoBehaviour
             {
                 return;
             }
+            
+            if (
+                hasOutgoingRiver && elevation < GetNeighbor(outgoingRiver).elevation
+            )
+            {
+                RemoveOutgoingRiver();
+            }
+            if (
+                hasIncomingRiver && elevation > GetNeighbor(incomingRiver).elevation
+            )
+            {
+                RemoveIncomingRiver();
+            }
+            
             Refresh();
         }
     }
